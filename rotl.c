@@ -1,16 +1,28 @@
 #include "monty.h"
 
 /**
- * rotl - rotates the stack to the top.
- * @stack:double pointer tot he begining of the linked list
- * @line_number: script line number
- *
- * Return: void
+ * rotl - Function that rotate the top of the stack
+ * @stack: stack structure
+ * @line_number: number of instruction
  */
-void rotl(stack_t **stack, unsigned int line_number)
-{
-	(void)line_number;
 
-	if (*stack)
-		*stack = (*stack)->next;
+void rotl(stack_t **stack, UN unsigned int line_number)
+{
+	stack_t *temp = NULL;
+
+	if (*stack == NULL)
+		return;
+	if ((*stack)->next == NULL)
+		return;
+
+	temp = (*stack);
+	for (; temp->next; temp = temp->next)
+		;
+
+	temp->next = *stack;
+	(*stack)->prev = temp;
+	temp = (*stack)->next;
+	(*stack)->next = NULL;
+	temp->prev = NULL;
+	*stack = temp;
 }

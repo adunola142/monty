@@ -1,16 +1,26 @@
 #include "monty.h"
 
 /**
- * rotr - rotates the stack to the bottom.
- * @stack: double pointer to the begining of the linked list
- * @line_number: script line number
- *
- * Return: void
+ * rotr - Function that rotate the top of the stack
+ * @stack: stack structure
+ * @line_number: number of instruction
  */
-void rotr(stack_t **stack, unsigned int line_number)
+void rotr(stack_t **stack, UN unsigned int line_number)
 {
-	(void)line_number;
+	stack_t *temp = NULL;
 
-	if (*stack)
-		*stack = (*stack)->prev;
+	if (*stack == NULL)
+		return;
+	if ((*stack)->next == NULL)
+		return;
+
+	temp = (*stack);
+	for (; temp->next; temp = temp->next)
+		;
+
+	temp->prev->next = NULL;
+	temp->next = *stack;
+	temp->prev = NULL;
+	(*stack)->prev = temp;
+	*stack = temp;
 }
