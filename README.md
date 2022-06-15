@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 # 0x19. C - Stacks, Queues - LIFO, FIFO
+
+  <h4 class="task">
+    0. push, pall
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+  </h4>
+>>>>>>> fe1c1eaef2bc19477bb5b7688cda7a3d2b061c74
 
 # Usage
 
